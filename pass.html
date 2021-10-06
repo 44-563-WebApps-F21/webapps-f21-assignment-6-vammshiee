@@ -12,7 +12,7 @@
 
 <form class="form-group">
     <label for="secretword">Enter the secret phrase</label>
-    <input type="password" id="secretword" name="secretword" min=10 max=50 step=2 value="Let mxe in">
+    <input type="password" id="secretword" name="secretword" min=10 max=50 step=2 value="Let me in">
     <br>
 
     <label for="guessword">Enter a phrase</label>
@@ -47,8 +47,34 @@
             }
 
         }
+        var usingImage = 1;
+        image = document.getElementById("image");
+
+        function  newImage()
+        {
+            switch(usingImage)
+            {
+                case 1:
+                    image.setAttribute('src', 'tiger.jpg');
+                    usingImage++;
+                    break;
+                case 2:
+                    image.setAttribute('src', 'horse.jpg');
+                    usingImage++;
+                    break;
+                case 3:
+                    image.setAttribute('src', 'impala.jpg');
+                    usingImage = 1;
+                    break;
+           }
+        }
+
 
 </script>
+<div class="container">
+    <img id="tiger" style="width: 200px;height: 200px" alt="tiger" onclick="newImage()" src="tiger.jpg">
+
+</div>
 
 </body>
 </html> 
