@@ -48,23 +48,33 @@
 
         }
         var usingImage = 1;
-        image = document.getElementById("image");
+        
 
         function  newImage()
         {
+            image = document.getElementById("tiger");
             switch(usingImage)
             {
                 case 1:
-                    image.setAttribute('src', 'tiger.jpg');
+                    {
+                        image.setAttribute('src', 'tiger.jpg');
                     usingImage++;
+                    }
+                    
                     break;
                 case 2:
-                    image.setAttribute('src', 'horse.jpg');
+                    {
+                        image.setAttribute('src', 'horse.jpg');
                     usingImage++;
+                    }
+                    
                     break;
                 case 3:
-                    image.setAttribute('src', 'impala.jpg');
+                    {
+                        image.setAttribute('src', 'impala.jpg');
                     usingImage = 1;
+                    }
+                    
                     break;
            }
         }
