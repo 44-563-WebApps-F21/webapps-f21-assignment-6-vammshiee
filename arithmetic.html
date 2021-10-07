@@ -19,8 +19,26 @@
         
 </form>
 
-
 <p id="result">This text will give the compute results </p>
+
+<form>
+    <input type="radio" id="rg1_plus" name="arithmetic" value="plus" onclick="processRadio()">  
+    <label for="rg1_plus">+</label></br>
+  
+    <input type="radio" id="rg1_minus" name="arithmetic" value="minus" onclick="processRadio()">
+    <label for="rg1_blue">-</label></br>
+  
+    <input type="radio" id="rg1_times" name="arithmetic" value="times" onclick="processRadio()">
+    <label for="rg1_times">*</label></br>
+
+    <input type="radio" id="rg1_divide" name="arithmetic" value="divide" onclick="processRadio()">
+    <label for="rg1_divide">/</label></br>
+
+    <p id="resolution">Calculated Values will display here</p>
+
+</form>
+
+
 
 <script> 
 
@@ -40,6 +58,33 @@ function powers(){
             }
             console.log("result");
             out.innerHTML = "Powers of base are: " + result;
+        }
+
+
+        function processRadio() {
+            var a1 = document.getElementById("base1").value;
+            var b1 = document.getElementById("exponent1").value;
+            var resolution = 0;
+            out = document.getElementById("resolution");
+            if (document.getElementById("rg1_plus").checked) {
+                resolution = parseFloat(a1) + parseFloat(b1);
+                out.innerHTML = resolution;
+            }
+            if (document.getElementById("rg1_minus").checked) {
+                resolution = a1 - b1;
+                out.innerHTML = resolution;
+            }
+            if (document.getElementById("rg1_times").checked) {
+                resolution = a1 * b1;
+                out.innerHTML = resolution;
+            }
+            if (document.getElementById("rg1_divide").checked) {
+                resolution = a1 / b1;
+                out.innerHTML = resolution;
+            }
+            console.log("result");
+            out.innerHTML = "Value from the form are: " + resolution;
+            
         }
 </script>
 
