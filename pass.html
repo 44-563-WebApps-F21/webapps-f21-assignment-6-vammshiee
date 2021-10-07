@@ -4,29 +4,43 @@
         <title>
             Webapps Assignment 6
         </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
     </head>
         
 <body>
 
 <h1>Pass phrase by Vamshi Krishna Thirunagiri</h1>
 
-<form class="form-group">
+<div class="container">
+<form >
+    <div class="form-group">
     <label for="secretword">Enter the secret phrase</label>
     <input type="password" id="secretword" name="secretword" min=10 max=50 step=2 value="Let me in">
+    </div>
     <br>
-
+    <div class="form-group">
     <label for="guessword">Enter a phrase</label>
-    <input type="text" id="guessword" name="guessword" autofocus> <br>
+    <input type="text" id="guessword" name="guessword" autofocus>
+    </div>
+     <br>
 
-    <input type="button" onclick=" processPhrase()" value="Check the phrase">
+    <input type="button" onclick=" processPhrase()" value="Check the phrase" class="btn btn-secondary">
 </form>
 
 
 <p id="result">guess count is shown here. </p>
+</div>
 
 <script>
     var correct = 0;
     var wrong = 0;
+    var succ = 0;
 
     function processPhrase() {
 
@@ -37,12 +51,18 @@
             if (secret_Word.localeCompare(guess_word) == 0) {
                 alert("Access allowed")
                 correct = correct + 1
-                final_result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong
+                final_result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong;
+                succ = 0;
             }
             else {
-                wrong = wrong + 1
-                alert("Access denied")
-
+                wrong = wrong + 1;
+                succ += 1;
+                if(succ ==3){
+                    alert("account locked.");
+                }
+                else{
+                alert("Access denied");
+                }
                 final_result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong
             }
 
