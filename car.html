@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Cars orders</title>
+ </head>
+<body>
+
+<h2>Vamshi Krishna Thirunagari orders a car</h2>
+
+<form>
+    
+    <input type ="checkbox" id="electric_car" name="electric_car"> 
+    <label for="electric">electric</label><br>
+
+    
+    <input type ="checkbox" id="ac_car" name="ac_car" autofocus> 
+    <label for="ac">AC </label><br>
+
+
+    <input type ="checkbox" id="gps_car" name="gps_car" autofocus> 
+    <label for="gps">GPS</label> <br>
+
+    <input type="button" onclick="orderCar()" value="order a car">
+</form>
+<p id="result">cars result </p>
+
+<form>
+    <label for="propertyName">Enter a property </label>
+    <input type ="text" id="propertyName" name="propertyName" value="color"> <br>
+
+    <label for="propertyValue">Enter a value </label>
+    <input type ="text" id="propertyValue" name="propertyValue" autofocus> <br>
+    <br>
+    <input type="button" onclick="updateCar()" value="Update the car">
+</form>
+
+<p id="result1">cars result </p>
+
+
+<script>
+    var my_car = {}
+    out = document.getElementById("result")
+
+    function orderCar() {
+
+        var my_car = {}
+        if (document.getElementById("electric_car").checked) {
+            my_car.electric = true;
+        }
+        else {
+            my_car.electric = false;
+        }
+        result.innerHTML = "electric: " + my_car.electric;
+        if (document.getElementById("ac_car").checked) {
+            my_car.ac = true;
+        }
+        else {
+            my_car.ac = false;
+        }
+        result.innerHTML = result.innerHTML + "\n" + "ac: " + my_car.ac;
+        if (document.getElementById("gps_car").checked) {
+            my_car.gps = true;
+        }
+        else {
+            my_car.gps = false;
+        }
+        result.innerHTML = result.innerHTML + "\n" + "gps: " + my_car.gps;
+    }
+   
+    out = document.getElementById("result1")
+
+    function updateCar()
+    {
+        var property = document.getElementById("propertyName").value;
+        var value = document.getElementById("propertyValue").value;
+        my_car[property] = value;
+        result1.innerHTML = "my_car[]=  " + JSON.stringify(my_car);
+    }
+
+</script>
+
+</body>
+</html> 
